@@ -2,3 +2,4 @@
 Create a Github repo
 Create a docker compose file to work locally
 Create a github action workflows
+Migrated the backend to s3 and make sure github action pipline works
