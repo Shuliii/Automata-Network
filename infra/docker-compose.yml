@@ -1,0 +1,9 @@
+services:
+  node:
+    image: hashicorp/terraform:1.10
+    container_name: terraform
+    volumes:
+      - ${PWD}:/app/
+    ports:
+      - 3000:3000
+    entrypoint: ["tail", "-f", "/dev/null"]
