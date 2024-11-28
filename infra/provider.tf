@@ -5,10 +5,14 @@ provider "aws" {
 #s3 backend
 terraform {
   backend "s3" {
-    bucket         = "rico-automata-tfstate"
-    key            = "terraform/statefile.tfstate"
-    region         = "ap-southeast-1"
+    bucket     = "rico-automata-s3"
+    key        = "terraform/statefile.tfstate"
+    region     = "ap-southeast-1"
   }
+
+  # backend "local" {
+  #   path="terraform.tfstate"
+  # }
 }
 
 #VPC
@@ -26,3 +30,4 @@ resource "aws_internet_gateway" "automata-igw" {
     Name = "bgw"
   }
 }
+
