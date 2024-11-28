@@ -40,7 +40,7 @@ jobs:
       # Initialize Terraform
       - name: Terraform Init
         working-directory: ${{ env.TF_ROOT }}
-        run: terraform init
+        run: terraform init -input=false
 
       #Validate Terraform
       - name: Terraform Validate
