@@ -18,3 +18,11 @@ resource "aws_vpc" "automata" {
     Name = "automata-vpc"
   }
 }
+
+# #IGW
+resource "aws_internet_gateway" "automata-igw" {
+  vpc_id = aws_vpc.automata.id
+  tags = {
+    Name = "bgw"
+  }
+}
