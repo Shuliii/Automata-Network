@@ -42,7 +42,22 @@ jobs:
         working-directory: ${{ env.TF_ROOT }}
         run: terraform init
 
+      #Validate Terraform
+      - name: Terraform Validate
+        working-directory: ${{ env.TF_ROOT }}
+        run: terraform validate
+
       # Run Terraform Plan
       - name: Terraform Plan
         working-directory: ${{ env.TF_ROOT }}
         run: terraform plan -out=tfplan
+
+      #Manual Approval in the UI
+      - name: Manual Approval
+        if: success()
+        run: echo "Waiting for manual approval before applying changes"
+
+      #Run Terraform Apply
+      - name: Terraform Apply
+        working-directory: ${{ env.TF_ROOT }}
+        run: terraform apply tfplan

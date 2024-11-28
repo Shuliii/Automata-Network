@@ -1,2 +1,4 @@
 28 Nov
 Create a Github repo
+Create a docker compose file to work locally
+Create a github action workflows
