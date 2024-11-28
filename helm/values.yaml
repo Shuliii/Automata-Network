@@ -1,0 +1,7 @@
+blockscoutfrontend:
+  replicaCount: 1
+  image:
+    repository: ghcr.io/blockscout/frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 3000

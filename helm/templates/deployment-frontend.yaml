@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-frontend
+  labels:
+    app: blockscout
+    component: frontend
+spec:
+  replicas: {{ .Values.blockscoutfrontend.replicaCount }}
+  selector:
+    matchLabels:
+      app: blockscout
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: blockscout
+        component: frontend
+    spec:
+      containers:
+        - name: blockscout-frontend
+          image: {{ .Values.blockscoutfrontend.image.repository }}:{{ .Values.blockscoutfrontend.image.tag }}
+          imagePullPolicy: {{ .Values.blockscoutfrontend.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.blockscoutfrontend.port }}
